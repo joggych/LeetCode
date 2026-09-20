@@ -1,20 +1,18 @@
 class Solution {
 public:
-    vector<int> plusOne(vector<int>& nums) {
-        int n = nums.size();
-
-        for (int k = n - 1; k >= 0; k--) {
-            if (nums[k] < 9) {
-                nums[k]++;
-                return nums;
-            } else {
-                nums[k] = 0;   
+    vector<int> plusOne(vector<int>& digits) {
+       int  n=digits.size();
+        for(int j=n-1;j>=0;j--){
+            if(digits[j]<9) {
+                digits[j]=digits[j]+1;
+                return digits;
             }
+            else digits[j]=0;
         }
-        nums.insert(nums.begin(), 1);  //if 999 or 99 then loop will not return anthing therfore we put 1 at the begin of the vector
-        return nums;
+            
+        //if case like 9 ,99 ,999
+        digits.insert(digits.begin(), 1);
+        return digits;
+        
     }
 };
-
-        
-
